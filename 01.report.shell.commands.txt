@@ -1,0 +1,89 @@
+1. echo hello world:
+- funtion: print word or value after echo to console.
+- output: hello world
+
+2. passwd:
+- funtion: change the password of the user computer
+- output: + Old password:
+          + New password:
+          + Retype new password:
+          + passwd: Failed global policy "com.apple.defaultpasswordpolicy.fde"  Password change failed because password does not meet minimum quality requirements. (Because I only use 1-letter password)
+=> So the password is unchanged
+
+3. date:
+- function: print out the current date and time
+- output: Thu Jan 16 09:08:10 +07 2020
+
+4. hostname:
+- funtion: obtain the system hostname
+- output: Harley-2.local
+
+5. arch:
+- function: print the computer architecture
+- output: i386
+
+6. uname -a:
+- function: + uname command: get system identification
+			+ The -a option tells uname to provide the following information: the name of the kernel, network node host name, kernel version number and release level, kernel release date, machine hardware name, CPU type, hardware platform and operating system name.
+- output: Darwin Harley-2.local 18.7.0 Darwin Kernel Version 18.7.0: Tue Aug 20 16:57:14 PDT 2019; root:xnu-4903.271.2~2/RELEASE_X86_64 x86_64
+
+7. dmesg:
+- function: When the computer boots up, there are lot of messages(log) generated during the system start-up. So you can read all these messages by using dmesg command.
+- output:  [IGFB][INFO   ] [Flip_Transaction] Pipe Gamma Enable
+IOConsoleUsers: time(0) 0->0, lin 1, llk 0, 
+IOConsoleUsers: gIOScreenLockState 1, hs 0, bs 0, now 0, sm 0x0
+[IGFB][INFO   ] [Flip_Transaction] FB0: Flipping display with wsaa 1 flipped from 2880 x 1800 -> 2880 x 1800 on 49000000 with 1 options at stride 11520
+[IGFB][INFO   ] [Flip_Transaction] CCS Param update: AuxOffset:0x0 AuxStride:0x0
+sb_user_approval: kTCCServiceSystemPolicyAllFiles for RTProtectionDaem [47]sb_user_approval: pid 47 responsible for 47sb_user_approval: kTCCServiceSystemPolicyAllFiles satisifed from cache for pid 47: not approvedIOConsoleUsers: time(0) 0->0, lin 1, llk 0, 
+IOConsoleUsers: gIOScreenLockState 1, hs 0, bs 0, now 0, sm 0x0
+loginwindow is not entitled for IOHIDLibUserClient keyboard accessIOConsoleUsers: time(0) 0->0, lin 1, llk 0, 
+IOConsoleUsers: gIOScreenLockState 1, hs 0, bs 0, now 0, sm 0x0
+
+8. uptime:
+- function: It is used to find out how long the system is active (running). This command returns set of values that involve, the current time, and the amount of time system is in running state, number of users currently logged into, and the load time for the past 1, 5 and 15 minutes respectively.
+- output:  9:51  up 16 days,  1:01, 2 users, load averages: 1.14 1.27 1.70
+
+9. who am i:
+- function: there is no command such as "who am i" but the system regcognise this as "who" which print out the following information: time of last system boot, current run level of the system, list of logged in users and more.
+- output: harley   ttys000  Jan 16 09:50 
+
+10. whoami:
+- function: displays the username of the current user when this command is invoked
+- output: harley
+
+11. who:
+- function: As I figured above this command print out the following information: time of last system boot, current run level of the system, list of logged in users and more.
+- output: harley   ttys000  Jan 16 09:50 
+
+12. id:
+- function: This command is useful to find out the following information as listed below:
+			+ User name and real user id.
+			+ Find out the specific Users UID.
+			+ Show the UID and all groups associated with a user.
+			+ List out all the groups a user belongs to.
+			+ Display security context of the current user.
+- output: uid=501(harley) gid=20(staff) groups=20(staff),12(everyone),61(localaccounts),79(_appserverusr),80(admin),81(_appserveradm),98(_lpadmin),701(com.apple.sharepoint.group.1),33(_appstore),100(_lpoperator),204(_developer),250(_analyticsusers),395(com.apple.access_ftp),398(com.apple.access_screensharing),399(com.apple.access_ssh)
+
+13. last:
+- function: display the list of all the users logged in and out since the file /var/log/wtmp was created.
+- output: harley    ttys000                   Thu Jan 16 09:50   still logged in
+		  harley    ttys001                   Thu Jan 16 09:20 - 09:20  (00:00)
+		  harley    ttys001                   Thu Jan 16 09:15 - 09:15  (00:00)
+		  harley    ttys001                   Thu Jan 16 09:10 - 09:10  (00:00)
+		  harley    ttys000                   Thu Jan 16 08:57 - 08:57  (00:00)
+		  harley    ttys000                   Wed Jan 15 20:55 - 20:55  (00:00)
+
+		  wtmp begins Wed Jan 15 20:55 
+
+14. finger:
+- function: print an entry for each user currently logged into the system.
+- output: Login    Name                 TTY  Idle  Login  Time   Office  Phone
+	      harley   harley              *con   16d  Dec 31 08:42
+		  harley   harley               s00        Thu    09:50
+
+15. w: show who is logged on and what they are doing.
+- function:
+- output: 10:13  up 16 days,  1:24, 2 users, load averages: 1.37 1.47 1.58
+		  USER     TTY      FROM              LOGIN@  IDLE WHAT
+		  harley   console  -                31Dec19 16days -
+		  harley   s000     -                 9:50       - w
