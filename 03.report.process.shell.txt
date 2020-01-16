@@ -1,0 +1,45 @@
+1. List all your running processes (ps with more info from man):
+- Command: ps -A
+- Output:
+72680 ??         0:00.02 automountd
+72683 ??         0:00.14 /System/Library/Frameworks/QuickLook.framework/Resourc
+72684 ??         0:00.19 /System/Library/Frameworks/QuickLook.framework/Version
+72685 ??         0:00.03 /System/Library/Frameworks/CoreServices.framework/Fram
+72744 ??         0:02.59 /Applications/Google Chrome.app/Contents/Frameworks/Go
+72745 ??         0:01.43 /Applications/Google Chrome.app/Contents/Frameworks/Go
+72746 ??         0:00.09 /Applications/Google Chrome.app/Contents/Frameworks/Go
+72707 ttys000    0:00.04 login -pf harley
+72708 ttys000    0:00.02 -bash
+72747 ttys000    0:00.00 ps -A
+
+2. Start a new process, gnome-calculator for example: As Macbook don't have gnome-calculator, so I will use Mac default calculator.app
+- Command: 
+cd /Applications
+open calculator.app
+- Output: Open Calculator app
+
+3. Find process id of your newly-created process (ps with grep):
+- Command: ps aux | grep calculator.app | awk '{print $2}'
+- Output: 73871
+
+4. Show its process status (see content of /proc/<id>/status): As Macbook don't have proc file, I will use below command
+- Command: ps aux | grep 73871 | awk '{print $8}'
+- Output: S+
+
+5. Pause it (kill with signal STOP): 
+- Command: kill -STOP 73871
+- Output: NONE
+=> The calculator.app pause as the system pop up a message announce that the app is not response
+
+6. Resume it (kill with signal CONT): 
+- Command: kill -CONT 73871
+- Output: NONE
+=> The calculator.app resume
+
+7. Terminate it (kill with signal KILL):
+- Command: kill -KILL 73871
+- OutputL: NONE
+=> The calculator app is killed and erase from Dock
+
+
+
