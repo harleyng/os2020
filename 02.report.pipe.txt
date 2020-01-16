@@ -1,0 +1,26 @@
+1. List all files in current directory containing «list» in their names (filter with grep):
+- Command: ls | grep list
+- Output: NONE (there is no file contain 'list' in their names in the current directory)
+
+2. Count how many lines that /etc/passwd has (use wc):
+- Command: Harley-2:os2020 harley$ wc /etc/passwd
+- Output:     108     292    6804 /etc/passwd
+
+3. Check how much memory that your machine has, not free memory (use free):
+- Command: free
+- Output: -bash: free: command not found (I'm using MAC so there is no free command)
+	* After edit the bash_login file I have the following output: Wired Memory:		2138 MB
+															  Active Memory:		1653 MB
+															  Inactive Memory:	1606 MB
+															  Free Memory:		183 MB
+															  Real Mem Total (ps):	4164.438 MB
+	With the folling command: free | grep Total | awk '{print $5}' 
+	I got the output: 4164.438
+
+4. Find how many logical core that your CPU has (see /proc/cpuinfo): As I'm using MacBook there is no 'cpuinfo' file so I use below command instead
+- Command: sysctl -n hw.ncpu
+- Output: 4
+
+5. Count how many .jpg files that you have in your photo directory (use find):
+- Command: find . | grep .jpg | wc -l
+- Output:  1700 
