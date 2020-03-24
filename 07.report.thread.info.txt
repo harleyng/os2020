@@ -1,0 +1,9 @@
+• Show number of threads for process firefox or google-chrome, choose one of two ways
+	- ps with NLWP (number of lightweight processes) option
+		$ ps -o nlwp 1569
+		NLWP
+		  81
+
+	- Count number of subdirectory in
+		$ ls /proc/1569/task | wc -w
+		81
